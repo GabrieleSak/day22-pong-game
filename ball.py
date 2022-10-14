@@ -1,3 +1,4 @@
+from random import randint
 from turtle import Turtle
 
 
@@ -8,8 +9,13 @@ class Ball(Turtle):
         self.color("white")
         self.penup()
         self.goto(0, 0)
+        self.angle = randint(0, 360)
 
     def move(self):
-        new_x = self.xcor() + 10
-        new_y = self.ycor() + 10
-        self.goto(new_x, new_y)
+        self.setheading(self.angle)
+        self.forward(10)
+
+    def bounce(self):
+        self.angle = 360 - self.angle
+
+

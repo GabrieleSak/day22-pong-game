@@ -20,11 +20,18 @@ screen.onkeypress(r_paddle.down, "Down")
 screen.onkeypress(l_paddle.up, "w")
 screen.onkeypress(l_paddle.down, "s")
 
-
 game_is_on = True
+
 while game_is_on:
     time.sleep(0.1)
     screen.update()
     ball.move()
+
+    if ball.xcor() > 390 or ball.xcor() < -390:
+        game_is_on = False
+        print("GAME OVER")
+
+    if ball.ycor() > 280 or ball.ycor() < -280:
+        ball.bounce()
 
 screen.exitonclick()
