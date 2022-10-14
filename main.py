@@ -1,7 +1,8 @@
 import time
-from turtle import Turtle, Screen
-from paddle import Paddle
+from turtle import Screen
+
 from ball import Ball
+from paddle import Paddle
 
 screen = Screen()
 screen.setup(width=800, height=600)
@@ -27,11 +28,15 @@ while game_is_on:
     screen.update()
     ball.move()
 
-    if ball.xcor() > 390 or ball.xcor() < -390:
-        game_is_on = False
-        print("GAME OVER")
-
     if ball.ycor() > 280 or ball.ycor() < -280:
         ball.bounce()
+
+    if (ball.distance(r_paddle) < 50 and ball.xcor() > 330) or (ball.distance(l_paddle) < 50 and ball.xcor() < -330):
+        ball.bounce_paddle()
+
+    if ball.xcor() > 380 or ball.xcor() < -380:
+        # game_is_on = False
+        ball.restart()
+        time.sleep(0.1)
 
 screen.exitonclick()
