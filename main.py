@@ -34,7 +34,7 @@ while game_is_on:
     if ball.ycor() > 280 or ball.ycor() < -280:
         ball.bounce()
 
-    if (ball.distance(r_paddle) < 50 and ball.xcor() > 330) or (ball.distance(l_paddle) < 50 and ball.xcor() < -330):
+    if (ball.distance(r_paddle) < 55 and ball.xcor() > 330) or (ball.distance(l_paddle) < 55 and ball.xcor() < -330):
         ball.bounce_paddle()
         ball.speed_up()
 
