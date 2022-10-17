@@ -10,11 +10,11 @@ class Ball(Turtle):
         self.penup()
         self.goto(0, 0)
         self.angle = randint(0, 360)
-        self.ball_speed = 10
+        self.move_speed = 0.1
 
     def move(self):
         self.setheading(self.angle)
-        self.forward(self.ball_speed)
+        self.forward(10)
 
     def bounce(self):
         self.angle = 360 - self.angle
@@ -25,7 +25,7 @@ class Ball(Turtle):
     def restart(self):
         self.goto(0, 0)
         self.angle = 180 - self.angle
+        self.move_speed = 0.1
 
     def speed_up(self):
-        if self.ball_speed <= 55:
-            self.ball_speed += 1
+        self.move_speed *= 0.9
